@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموقع الكشفي - مجموعة الشبيبة المسيحية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+         :root {
+            --primary-color: #1a4b2e;
+            --secondary-color: #2c6e49;
+            --accent-color: #f9a826;
+            --light-color: #f8f9fa;
+            --dark-color: #1d2d28;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* التصميم العام */
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* الشريط العلوي */
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo i {
+            font-size: 50px;
+            color: var(--primary-color);
+        }
+        
+        .header-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-title p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        /* افتتاحية الموقع */
+        
+        .hero {
+            background: url('file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-07%20at%2021.37.10_2cb827f4.jpg') no-repeat center center/cover;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 40px;
+        }
+        
+        .bible-verse {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .verse-source {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        /* نظام الأقسام */
+        
+        .sections-nav {
+            background-color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sections-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .sections-list li {
+            margin: 0 5px;
+        }
+        
+        .section-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-btn i {
+            margin-left: 8px;
+        }
+        
+        .section-btn:hover,
+        .section-btn.active {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        /* أقسام المحتوى */
+        
+        .content-section {
+            padding: 60px 0;
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .section-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .section-verse {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-right: 4px solid var(--accent-color);
+            border-radius: 5px;
+        }
+        /* معرض الصور */
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .gallery-caption {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .member-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-top: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .member-name::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .gallery-item:hover .member-name::after {
+            width: 100%;
+        }
+        /* الأنيميشن للأسماء */
+        
+        @keyframes nameAnimation {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .animated-name {
+            animation: nameAnimation 0.8s ease forwards;
+        }
+        /* تأثيرات الظهور */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* التذييل */
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .footer-verses {
+            font-style: italic;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* responsive design */
+        
+        @media (max-width: 768px) {
+            .header-title h1 {
+                font-size: 2rem;
+            }
+            .bible-verse {
+                font-size: 1.4rem;
+            }
+            .sections-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            .sections-list li {
+                margin: 5px 0;
+                width: 100%;
+                text-align: center;
+            }
+            .section-btn {
+                width: 80%;
+                justify-content: center;
+            }
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- الشريط العلوي -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-cross"></i>
+                </div>
+                <div>
+                    <h2>مجموعة العجايبي الكشفية </h2>
+                    <p>نحو حياة أفضل في خدمة المسيح</p>
+                </div>
+            </div>
+            <div class="header-title">
+                <h1>الموقع الرسمي للمجموعة الكشفية</h1>
+                <p>نحن نعمل معاً لبناء مستقبل أفضل تحت قيادة المسيح</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- الافتتاحية -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="bible-verse">
+                "وَأَمَّا أَنْتَ فَتَكَلَّمْ بِمَا يَلِيقُ بِالتَّعْلِيمِ الصَّحِيحِ. ليَكُنِ الْكَلَامُ صَالِحًا لِلْبُنْيَانِ حَسَبَ حَاجَةِ الْوَقْتِ، لِيُعْطِ نِعْمَةً لِلسَّامِعِينَ."
+            </div>
+            <div class="verse-source">(أفسس 4: 29)</div>
+        </div>
+    </section>
+
+    <!-- نظام الأقسام -->
+    <nav class="sections-nav">
+        <div class="container">
+            <ul class="sections-list">
+                <li><button class="section-btn active" data-section="carnivals"><i class="fas fa-music"></i> الكرنفالات</button></li>
+                <li><button class="section-btn" data-section="scouting-days"><i class="fas fa-campground"></i> الأيام الكشفية</button></li>
+                <li><button class="section-btn" data-section="achievements"><i class="fas fa-trophy"></i> إنجازات الموسم</button></li>
+                <li><button class="section-btn" data-section="fathers"><i class="fas fa-users"></i> الآباء المسؤولون</button></li>
+                <li><button class="section-btn" data-section="leaders"><i class="fas fa-user-shield"></i> القادة</button></li>
+                <li><button class="section-btn" data-section="cubs"><i class="fas fa-child"></i>قطاع الأشبال والزهرات</button></li>
+                <li><button class="section-btn" data-section="scouts"><i class="fas fa-hiking"></i>قطاع  كشافة</button></li>
+                <li><button class="section-btn" data-section="advanced"><i class="fas fa-mountain"></i> قطاع كشاف متقدم</button></li>
+                <li><button class="section-btn" data-section="rovers"><i class="fas fa-map-marked-alt"></i> قطاع جوالة</button></li>
+                <li><button class="section-btn" data-section="leaders-section"><i class="fas fa-crown"></i> قطاع قادة</button></li>
+                <li><button class="section-btn" data-section="distinguished"><i class="fas fa-star"></i> المتميزين</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- أقسام المحتوى -->
+    <main>
+        <!-- قسم الكرنفالات -->
+        <section id="carnivals" class="content-section active">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">الكرنفالات</h2>
+                    <p class="section-description">احتفالاتنا وكرنفالاتنا هي تعبير عن فرحتنا وتماسك مجتمعنا الكشفي</p>
+                </div>
+
+                <div class="section-verse">
+                    "اِفْرَحُوا فِي الرَّبِّ كُلَّ حِينٍ، وَأَقُولُ أَيْضًا: افْرَحُوا."
+                    <div class="verse-source">(فيلبي 4: 4)</div>
+                </div>
+
+
+
+                <div class="gallery">
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-07%20at%2020.27.50_6b371917.jpg" alt="كرنفال ابتدائي "
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>كرنفال ابتدائي</h3>
+                            <p>احتفالات الموسم</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery">
+                        <div class="gallery-item fade-in">
+                            <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B1%D9%86%D9%81%D8%A7%D9%84%D8%A7%D8%AA/WhatsApp%20Image%202025-09-07%20at%2020.26.57_8a786581.jpg" alt="كرنفال ابتدائي "
+                                class="gallery-img">
+                            <div class="gallery-caption">
+                                <h3>كرنفال ابتدائي</h3>
+                                <p>احتفالات الموسم</p>
+                            </div>
+                        </div>
+
+
+                        <div class="gallery">
+                            <div class="gallery-item fade-in">
+                                <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B1%D9%86%D9%81%D8%A7%D9%84%D8%A7%D8%AA/WhatsApp%20Image%202025-09-07%20at%2020.26.50_75455e76.jpg" alt="كرنفال ابتدائي "
+                                    class="gallery-img">
+                                <div class="gallery-caption">
+                                    <h3>كرنفال ابتدائي</h3>
+                                    <p>احتفالات الموسم</p>
+                                </div>
+                            </div>
+
+                            <div class="gallery">
+                                <div class="gallery-item fade-in">
+                                    <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B1%D9%86%D9%81%D8%A7%D9%84%D8%A7%D8%AA/WhatsApp%20Image%202025-09-07%20at%2020.26.46_e46e83f7.jpg" alt="كرنفال ابتدائي "
+                                        class="gallery-img">
+                                    <div class="gallery-caption">
+                                        <h3>كرنفال ابتدائي</h3>
+                                        <p>احتفالات الموسم</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="gallery">
+                                    <div class="gallery-item fade-in">
+                                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B1%D9%86%D9%81%D8%A7%D9%84%D8%A7%D8%AA/WhatsApp%20Image%202025-09-07%20at%2020.26.45_7cc852a2.jpg" alt="كرنفال ابتدائي "
+                                            class="gallery-img">
+                                        <div class="gallery-caption">
+                                            <h3>كرنفال ابتدائي</h3>
+                                            <p>احتفالات الموسم</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="gallery">
+                                        <div class="gallery-item fade-in">
+                                            <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B1%D9%86%D9%81%D8%A7%D9%84%D8%A7%D8%AA/WhatsApp%20Image%202025-09-07%20at%2020.26.45_cd909246.jpg" alt="كرنفال ابتدائي "
+                                                class="gallery-img">
+                                            <div class="gallery-caption">
+                                                <h3>كرنفال ابتدائي</h3>
+                                                <p>احتفالات الموسم</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        </section>
+
+        <!-- قسم الأيام الكشفية -->
+        <section id="scouting-days" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">الأيام الكشفية</h2>
+                    <p class="section-description">أيام نتعلم فيها العمل الجماعي وتحمل المسؤولية في جو من المرح والتعلم</p>
+                </div>
+
+                <div class="section-verse">
+                    "هكَذَا أَنْتُمْ أَيْضاً، حِينَمَا تَفْعَلُونَ كُلَّ مَا أُمِرْتُمْ بِهِ، قُولُوا: إِنَّنَا عَبيدٌ بَطَّالُونَ، لأَنَّنَا إِنَّمَا عَلَيْنَا الْوَاجِبَ أَنْ نَفْعَلَ."
+                    <div class="verse-source">(لوقا 17: 10)</div>
+                </div>
+
+                <div class="gallery">
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-07%20at%2020.27.49_9f3681f1.jpg" alt="يوم التعاون"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم التعاون</h3>
+                            <p>تعلمنا كيفية العمل معاً كفريق واحد</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-07%20at%2021.37.10_2cb827f4.jpg" alt="يوم المغامرة"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-07%20at%2020.27.33_6ee0dbe2.jpg" alt="يوم المغامرة"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-07%20at%2020.27.34_f3550521.jpg" alt="يوم المغامرة"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-07%20at%2020.27.38_9647a52e.jpg" alt="يوم المغامرة"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-07%20at%2020.27.51_f39b703d.jpg" alt="يوم المغامرة"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-08%20at%2002.18.00_8ff85684.jpg" alt="يوم المغامرة"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-08%20at%2002.18.03_f92e6f4e.jpg" alt="يوم المغامرة"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-08%20at%2002.18.04_1eeec28e.jpg" alt="يوم المغامرة"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-08%20at%2002.18.04_63d5b457.jpg" alt="يوم المغامرة"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-08%20at%2002.21.09_749e61fd.jpg" alt="يوم المغامرة"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-08%20at%2002.21.08_e49f5a68.jpg" alt="يوم المغامرة"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="" alt="يوم المغامرة" class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="" alt="يوم المغامرة" class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم المغامرة</h3>
+                            <p>استكشاف الطبيعة وتحدي الذات</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="" alt="يوم الخدمة" class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>يوم الخدمة</h3>
+                            <p>خدمة المجتمع وتقديم المساعدة </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم إنجازات الموسم -->
+        <section id="achievements" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">إنجازات الموسم</h2>
+                    <p class="section-description">إنجازاتنا هي ثمرة تعبنا وتفانينا في العمل بروح الفريق الواحد</p>
+                </div>
+
+                <div class="section-verse">
+                    "أَمَّا الْغَالِبُ فَسَأُعْطِيهِ أَنْ يَجْلِسَ مَعِي فِي عَرْشِي، كَمَا غَلَبْتُ أَنَا أَيْضاً وَجَلَسْتُ مَعَ أَبِي فِي عَرْشِهِ."
+                    <div class="verse-source">(رؤيا 3: 21)</div>
+                </div>
+
+                <div class="section-verse">
+                    🎉 إنجازات مجموعة العجايبي الكشفية 🌟 أطلقنا متجر العجايبي الجديد ليكون مساحة إبداعية تجمع منتجاتنا المميزة. 🎲 نظمنا أيام ترفيهية ممتعة لكل القطاعات، مليانة بهجة وروح الفريق. ⛪ استضفنا آباء كهنة وضيوف مميزين ألقوا كلمات روحية لمست قلوبنا وأثرت فينا.
+                    🏕️ أقمنا أيام كشفية ميدانية لقطاعات الكشافة والمرشدات، الكشاف المتقدم، والجوالة. 🎭 نفذنا حفلة الوعد بفريق كامل من أبناء مجموعة العجايبي، من غير أي إضافات خارجية… شغلنا كان كامل من: المسرح التأليف الإخراج الأزياء ✋ اشتغلنا على أعمال
+                    الهاند ميد مع كل القطاعات، علشان ننمّي المواهب اللي جواهم ونفتح لهم مساحة إبداع جديدة.
+                    <div class="verse-source"></div>
+                </div>
+
+
+                <div class="gallery">
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%86%D8%AC%D8%A7%D8%B2%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85/WhatsApp%20Image%202025-09-07%20at%2020.45.12_1dcf5498.jpg "
+                            alt="كأس التميز" class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>كأس التميز</h3>
+                            <p>حصلنا على المركز الأول </p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%86%D8%AC%D8%A7%D8%B2%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85/WhatsApp%20Image%202025-09-07%20at%2020.45.12_a8f35ce3.jpg"
+                            alt="مشروع يداً بيد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>مشروع " المحبة "</h3>
+                            <p>تمكنا من مساعدة 100 أسرة محتاجة</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%86%D8%AC%D8%A7%D8%B2%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85/WhatsApp%20Image%202025-09-08%20at%2002.40.00_41ad4c86.jpg"
+                            alt="  انتبه تم أختراقك" class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3> " انتبه تم أختراقك "</h3>
+                            <p>أخراج/ مارينا وجيه </p>
+                            <p>يوم التلات 9/9 سبتمبر الساعة الرابعة منتظرينكم</p>
+
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%86%D8%AC%D8%A7%D8%B2%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85/WhatsApp%20Image%202025-09-07%20at%2020.45.13_c67f9eee.jpg"
+                            alt="مشروع يداً بيد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3> " شغل هاند مايد "</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%86%D8%AC%D8%A7%D8%B2%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85/WhatsApp%20Image%202025-09-07%20at%2020.45.12_66011640.jpg"
+                            alt="مشروع يداً بيد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>" شغل هاند مايد "</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%86%D8%AC%D8%A7%D8%B2%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85/WhatsApp%20Image%202025-09-07%20at%2020.45.13_562d0e1a.jpg"
+                            alt="مشروع يداً بيد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3> " شغل هاند مايد "</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%86%D8%AC%D8%A7%D8%B2%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85/WhatsApp%20Image%202025-09-07%20at%2020.45.12_e234df32.jpg"
+                            alt="مشروع يداً بيد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3> " شغل هاند مايد "</h3>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D8%A7%D9%8A%D8%A7%D9%85%20%D9%83%D8%B4%D9%81%D9%8A%D8%A9/WhatsApp%20Image%202025-09-07%20at%2021.37.10_2cb827f4.jpg" alt="تخريج الدفعة الجديدة"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <h3>تخريج الدفعة الجديدة</h3>
+                            <p>تخرج 82 كشافاً بعد اجتيازهم مرحلة التدريب</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الآباء المسؤولين -->
+        <section id="fathers" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">الآباء المسؤولون</h2>
+                    <p class="section-description">الآباء الذين يدعمون أنشطتنا ويساهمون في نجاحها</p>
+                </div>
+
+                <div class="section-verse">
+                    "وَأَمَّا مَنْ يَعْمَلُ وَيُعَلِّمُ، فَهذَا يُدْعَى عَظِيمًا فِي مَلَكُوتِ السَّمَاوَاتِ."
+                    <div class="verse-source">(متى 5: 19)</div>
+                </div>
+
+                <div class="gallery">
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-06%20at%2004.01.44_caa342b5.jpg" alt=" أبونا هدرا" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">أبونا هدرا </div>
+                            <p>مسؤول الأنشطة الروحية</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-06%20at%2004.01.44_b731163b.jpg" alt=" أبونا كيرلس" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">أبونا كيرلس </div>
+                            <p>مشرف عام المجموعة</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-06%20at%2004.01.44_0e3ee798.jpg" alt=" أبونا كاراس" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> أبونا كاراس</div>
+                            <p>مسؤول التدريب الكشفي</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم القادة -->
+        <section id="leaders" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">القادة</h2>
+                    <p class="section-description">قادتنا الذين يوجهوننا ويساعدوننا على النمو روحياً وكشفياً</p>
+                </div>
+
+                <div class="section-verse">
+                    "اِحْتَرِزُوا إِذاً لأَنْفُسِكُمْ وَلِجَمِيعِ الرَّعِيَّةِ الَّتِي أَقَامَكُمُ الرُّوحُ الْقُدُسُ فِيهَا أَسَاقِفَةً، لِتَرْعَوْا كَنِيسَةَ اللهِ الَّتِي اقْتَنَاهَا بِدَمِهِ."
+                    <div class="verse-source">(أعمال 20: 28)</div>
+                </div>
+
+                <div class="gallery">
+                    <div class="gallery-item fade-in">
+                        <img src="" alt=" القائد عادل حفظي " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">القائد عادل حفظي </div>
+                            <p>قائد عام المجموعة</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="" alt="القائدة كيرلس الصغير " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">القائدة كيرلس الصغير </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.35.11_b9876217.jpg " alt=" القائدة مينا ناجح " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">القائدة مينا ناحج</div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.35.08_ae49f5a0.jpg" alt="القائد مارتينا كامل " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">القائد مارتينا كامل</div>
+                            <p>مسؤول التدريب</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.35.12_2b97e746.jpg" alt="مرتينا شوقت  " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مرتينا شوقت </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.35.13_1ac4d920.jpg" alt=" جرجس صلاح" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> جرجس صلاح </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.35.09_67bb2b12.jpg" alt=" هناء صفوت " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> هناء صفوت </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.35.10_1bd97239.jpg" alt=" هايدي صفوت " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">هايدي صفوت </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.35.41_029b7274.jpg" alt=" هناء أسعد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">هناء أسعد </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.35.11_9ff4f5bb.jpg" alt=" تامر أمين " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">تامر أمين </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.34.50_760b9f84.jpg" alt=" بيشوي أسامة " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">بيشوي أسامة </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.35.08_838c512f.jpg" alt=" منار ماهر" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> منار ماهر </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.34.53_265935ac.jpg" alt=" فادي رأفت" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">فادي رأفت </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.35.07_5caf15de.jpg" alt="سوسنا خليل  " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">سوسنا خليل </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.35.12_0f2e1792.jpg" alt="رنا موسى " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">رنا موسى </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="" alt="ماريان أيمن  " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">ماريان أيمن </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="" alt="مرفت عطيه  " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مرفت عطية </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.45.29_b2dc4bfb.jpg" alt="مريت سامح  " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مريت سامح </div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="" alt="القائدة مينا" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">القائدة مينا</div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+
+
+                    <div class="gallery-item fade-in">
+                        <img src="" alt="القائدة مينا" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">القائدة مينا</div>
+                            <p>نائب القائد العام</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الأشبال والزهرات -->
+        <section id="cubs" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">الأشبال والزهرات</h2>
+                    <p class="section-description">أعضاء قطاع الأشبال والزهرات الذين سيشاركون في الأنشطة</p>
+                </div>
+
+                <div class="section-verse">
+                    "دَعُوا الأَوْلاَدَ يَأْتُونَ إِلَيَّ وَلاَ تَمْنَعُوهُمْ، لأَنَّ لِمِثْلِ هؤُلاَءِ مَلَكُوتَ اللهِ."
+                    <div class="verse-source">(لوقا 18: 16)</div>
+                </div>
+
+                <div class="gallery">
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture10.png" alt="كاراس تامر " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">كاراس تامر </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture22.png" alt="كاراس سامح" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">كاراس سامح</div>
+                        </div>
+                    </div>
+
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture1.jpg" alt="ناجح حنا " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">ناجح حنا </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture22.png" alt=" يسى كمال" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> يسى كمال</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture10.png" alt=" كاراس كرم" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">كاراس كرم</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture2.jpg" alt=" اندرو اكرامي" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> اندرو اكرامي</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture3.jpg" alt="كيرلس رزق " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> كيرلس رزق</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture7.png" alt=" مينا هاني" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مينا هاني</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture6.jpg" alt=" كاراس مدحت" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> كاراس مدحت</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture8.jpg" alt=" مينا حنا" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مينا حنا </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2014.41.23_e4d0fd85.jpg" alt=" كاراس صفوت" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> كاراس صفوت </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture9.jpg" alt=" مارتن امجد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مارتن امجد</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture10.png" alt=" مارينا صليب" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مارينا صليب</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture10.png" alt=" ايلاريا تامر" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> ايلاريا تامر</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture11.jpg" alt="ميرا شنودة " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> ميرا شنودة</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture12.jpg" alt=" مريم عيد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مريم عيد</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture13.jpg" alt=" ڤيرونيا ابراهيم" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> ڤيرونيا ابراهيم</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture14.jpg" alt="مارينا أيوب" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مارينا أيوب</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture15.jpg" alt="مريم حنا" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مريم حنا</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture16.jpg" alt=" اوجانيا إسحاق" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> اوجانيا إسحاق</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture17.png" alt="سيمون بشاي " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> سيمون بشاي</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture18.jpg" alt=" مايڤن  وجيه " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مايڤن وجيه </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture19.jpg" alt=" جومانة ممدوح" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">جومانا ممدوح </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture20.jpg" alt=" ميرا كيرلس" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> ميرا كرلس</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture21.jpg" alt="  انجلينا إيليا" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">انجلينا إيليا </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/Picture22.png" alt=" مريم عيد رمسي" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مريم عيد رسمي</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم كشاف -->
+        <section id="scouts" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"> قطاع كشاف </h2>
+                    <p class="section-description">أعضاء قطاع كشافة الذين يمثلون عماد المجموعة</p>
+                </div>
+
+                <div class="section-verse">
+                    "لاَ يَحْتَقِرْ أَحَدٌ صِغَرَ سِنِّكَ، بَلْ كُنْ قُدْوَةً لِلْمُؤْمِنِينَ فِي الْكَلاَمِ، فِي التَّصَرُّفِ، فِي الْمَحَبَّةِ، فِي الرُّوحِ، فِي الإِيمَانِ، فِي الطَّهَارَةِ."
+                    <div class="verse-source">(1 تيموثاوس 4: 12)</div>
+                </div>
+
+                <div class="gallery">
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.32_35554e10.jpg" alt=" ملك شنودة" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مللك شنودة </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.36_6aa13ae0.jpg" alt="   نرمين نشأت" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> نرمين نشأت </div>
+                        </div>
+                    </div>
+
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.31_5292ad3e.jpg" alt=" مورين أشرف" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مورين أشرف </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.30_ed9fbefd.jpg" alt=" مريم سليدس" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مريم سليدس</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.37_d819f7fb.jpg" alt="ايريني كمال " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">ايريني كمال </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2022.58.43_47064a02.jpg" alt="ايريني صابر " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> ايريني صابر</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.33_64881960.jpg" alt=" يؤنا توفيق" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">يؤنا توفيق </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.37_9b04ba24.jpg" alt=" مهرئيل ماجد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مهرئيل ماجد </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.36_089c2172.jpg" alt="ايلاريا مينا " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">ايلاريا مينا </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.38_0b082bb6.jpg" alt=" ميرولا  أشرف" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">ميرولا أشرف</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.34_26912589.jpg" alt=" ايريني جاد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> ايريني جاد</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-08%20at%2000.13.51_68cd92e7.jpg" alt=" بسمه عماد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">بسمه عماد</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.36_285be8c4.jpg" alt="ميرولا موريس " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> ميرولا موريس</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-08%20at%2000.14.06_367d3808.jpg" alt="جسيكا جوزيف " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">جسيكا جوزيف </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.38_202e302a.jpg" alt=" مريم كارم" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مريم كارم</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.39_a9a2cb4c.jpg" alt=" مادونا ايمن " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مادونا ايمن</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.38_6a2cffd1.jpg" alt=" جومانه انور " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> جومانا انور</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.38_c42862d8.jpg" alt=" كرستينا صليب" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> كرستينا صليب </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.34_f65d7eef.jpg" alt=" مورين كرامي" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مورين كرامي</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.37_ec666cdc.jpg" alt=" سوسنا ماهر" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> سوسنا ماهر</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.38_2d58369f.jpg" alt=" دميانه سامح" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> دميانه سامح</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.34_cb201b1b.jpg" alt=" ميرولا سامي" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> ميرولا سامي </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-08%20at%2000.10.20_e51f99d6.jpg" alt="  كيرلس مينا" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> كيرلس مينا </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.35_99cf1a40.jpg" alt=" كرستيانا رفعت" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> كرستيانا رفعت</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="C:/Users/HP/Desktop/TroopDay/حفلة%20الوعد/صور/كشاف/WhatsApp%20Image%202025-09-07%20at%2020.55.34_5e1b3947.jpg" alt=" مارينا يوسف" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مارينا يوسف</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.35_4246f385.jpg" alt=" لينا كرامي" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> لينا كرامي</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.35_ee21f9d3.jpg" alt=" رنا جاد " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> رنا جاد</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.39_ca52d04f.jpg" alt=" مريم سامح" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مريم سامح</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.37_4d446d47.jpg" alt=" جورج ممدوح" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">جورج ممدوح </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.35_29f6eca2.jpg" alt=" جون امجد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">جون امجد </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.34_4d30a55d.jpg" alt=" مينا أمين" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مينا أمين</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.34_47aedfa7.jpg" alt=" كيرلس مجدي" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> كيرلس مجدي</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.40_15214e52.jpg" alt=" بيشوي شنودة" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> بيشوي شنودة</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.36_069d1fc6.jpg" alt=" منا مسعد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مينا مسعد </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.39_ccaaeb51.jpg" alt=" يوليانه أشرف" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> يوليانه أشرف</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.40_50d734b9.jpg" alt=" دميانة ابراهيم" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> دميانه ابراهيم</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.39_391d8658.jpg" alt=" كرمينا اكرامي" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> كرمينا اكرامي</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.39_a71650a5.jpg" alt=" مينا ماجد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مينا ماجد </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2022.59.37_cfac76a8.jpg" alt=" كيرلس كارم" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> كيرلس كارم</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.33_38f3cf8e.jpg" alt=" مهرائيل نبيل" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مهرائيل نبيل</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.36_0c435c1e.jpg" alt=" مريم ماهر" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مريم ماهر</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.36_1d181538.jpg" alt=" مريم صليب" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مريم صليب</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.39_525835db.jpg" alt=" ماريان اسعد " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> ماريان اسعد</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.36_e06e63e9.jpg" alt=" كيرلس حنا" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> كيرلس حنا </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.40_82d53c05.jpg" alt=" يوسف عيد" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">يوسف عيد </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-08%20at%2000.05.13_baadee06.jpg" alt=" ماريو مجدي" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">ماريو مجدي </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="" alt=" يوستينا ايمن" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">يوستينا ايمن </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81/WhatsApp%20Image%202025-09-07%20at%2020.55.37_ae9d012b.jpg" alt="  بيشوي هاني " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">بيشوي هاني </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2023.51.40_f7de434e.jpg" alt=" بافلي سليدس" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">بافلي سليدس </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-08%20at%2000.10.18_9f55ddde.jpg" alt=" ديفيد هاني " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">ديفيد هنامي </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-08%20at%2000.10.18_2b44f5d2.jpg" alt=" بيشوي كامل  " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> بيشوي كامل </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم كشاف متقدم -->
+        <section id="advanced" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">قطاع كشاف المتقدم</h2>
+                    <p class="section-description">الكشافة المتقدمون الذين أظهروا تميزاً والتزاماً في أنشطتهم</p>
+                </div>
+
+                <div class="section-verse">
+                    "أَسْبِقُوا إِلَى الْوُجُوهِ. اِحْضُرُوا مَجَالِسَ الأَكَابِرِ. بَلْ أَيْنَمَا حَكَمْتَ الْعِلْمَ فَهُنَاكَ يَكُونُ آخِرُ الأُمُورِ."
+                    <div class="verse-source">(أمثال 18: 16-17)</div>
+                </div>
+
+                <div class="gallery">
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81%20%D9%85%D8%AA%D9%82%D8%AF%D9%85/WhatsApp%20Image%202025-09-08%20at%2000.23.05_408acf9a.jpg" alt="  مارينا حسام "
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مارينا حسام </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81%20%D9%85%D8%AA%D9%82%D8%AF%D9%85/WhatsApp%20Image%202025-09-08%20at%2000.23.02_bf8b1f86.jpg" alt=" بولا سامح  "
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> بولا سامح </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81%20%D9%85%D8%AA%D9%82%D8%AF%D9%85/WhatsApp%20Image%202025-09-08%20at%2000.23.04_07bb4e68.jpg" alt=" ايريني رزق "
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> ايريني رزق</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81%20%D9%85%D8%AA%D9%82%D8%AF%D9%85/WhatsApp%20Image%202025-09-08%20at%2000.23.06_7bf3f0c7.jpg" alt=" ايريني كرم"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">ايريني كرم </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81%20%D9%85%D8%AA%D9%82%D8%AF%D9%85/WhatsApp%20Image%202025-09-08%20at%2000.23.05_40979769.jpg" alt="  جرجس بطرس"
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> جرجس بطرس </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81%20%D9%85%D8%AA%D9%82%D8%AF%D9%85/WhatsApp%20Image%202025-09-08%20at%2000.23.05_76f453dc.jpg" alt="مارينا  ابراهيم "
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مارينا ابراهيم </div>
+                        </div>
+                    </div>
+
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/حفلة%20الوعد/صور/كشاف%20متقدم/WhatsApp%20Image%202025-09-08%20at%2000.23.05_94d1b6dc.jpg" alt="  مادونا أسامة " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مادونا أسامة </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81%20%D9%85%D8%AA%D9%82%D8%AF%D9%85/WhatsApp%20Image%202025-09-08%20at%2000.23.05_dc8d62f8.jpg" alt=" مركين أشرف "
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> نرمين أشرف </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%83%D8%B4%D8%A7%D9%81%20%D9%85%D8%AA%D9%82%D8%AF%D9%85/WhatsApp%20Image%202025-09-08%20at%2000.23.06_16f1070a.jpg" alt=" بيشوي كارم  "
+                            class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> بيشوي كارم </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الجوالة -->
+        <section id="rovers" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">قطاع الجوالة</h2>
+                    <p class="section-description">جوالتنا الذين يمثلون القمة في الانتماء الكشفي والروح القيادية</p>
+                </div>
+
+                <div class="section-verse">
+                    "أَمَّا نَحْنُ فَإِنَّنَا不ْنَتَكَلَّمُ بِحِكْمَةٍ بَيْنَ الْكَامِلِينَ، وَلكِنْ بِحِكْمَةٍ لَيْسَتْ مِنْ هذَا الدَّهْرِ، وَلاَ مِنْ عُظَمَاءِ هذَا الدَّهْرِ، الَّذِينَ يُبْطَلُونَ."
+                    <div class="verse-source">(1 كورنثوس 2: 6)</div>
+                </div>
+
+                <div class="gallery">
+                    <div class="gallery-item fade-in">
+                        <img src="file:///F:/WhatsApp%20Image%202025-09-07%20at%2015.56.00_f5e4f672.jpg" alt=" مينا صفوت" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مينا صفوت </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم القادة -->
+        <section id="leaders-section" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">قطاع القادة</h2>
+                    <p class="section-description">قادتنا الذين يتحملون مسؤولية قيادة المجموعة وتوجيهها نحو التميز</p>
+                </div>
+
+                <div class="section-verse">
+                    "وَهَا أَنَا مَعَكُمْ كُلَّ الأَيَّامِ إِلَى انْقِضَاءِ الدَّهْرِ."
+                    <div class="verse-source">(متى 28: 20)</div>
+                </div>
+
+
+                <class="gallery">
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2000.39.02_d0af395d.jpg" alt=" مينا فتحي" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مينا فتحي </div>
+                        </div>
+                    </div>
+
+
+
+            </div>
+            </div>
+        </section>
+
+        <!-- قسم المتميزين -->
+        <section id="distinguished" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">المتميزين</h2>
+                    <p class="section-description">الأعضاء المتميزون الذين أظهروا تفوقاً وإبداعاً في أنشطة المجموعة</p>
+                </div>
+
+                <div class="section-verse">
+                    "وَكُلُّ مَنْ يُجَاهِدُ يَضْبِطُ نَفْسَهُ فِي كُلِّ شَيْءٍ. أَمَّا هؤُلاَءِ فَلِكَيْ يَأْخُذُوا إِكْلِيلاً يَفْنَى، وَأَمَّا نَحْنُ فَإِكْلِيلاً لاَ يَفْنَى."
+                    <div class="verse-source">(1 كورنثوس 9: 25)</div>
+                </div>
+
+                <div class="gallery">
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.35.13_af0f5a10.jpg" alt="مارو  القس كيرلس  " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> مارو القس كيرلس</div>
+                            <p>تميزت في الأنشطة الروحية والخدمة المجتمعية</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.00.09_b43cfd2d.jpg" alt=" دميانة حنا " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">دميانة حنا </div>
+                            <p>تميز في القيادة والأنشطة الكشفية</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2001.00.00_4cba9639.jpg" alt=" مريم سمير " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">مرم سمير </div>
+                            <p>تميزت في الأنشطة الفنية والإبداعية</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="file:///C:/Users/HP/Desktop/TroopDay/%D8%AD%D9%81%D9%84%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D8%AF/%D8%B5%D9%88%D8%B1/%D9%82%D8%A7%D8%AF%D8%A9/WhatsApp%20Image%202025-09-08%20at%2002.52.10_8dca7b6b.jpg" alt="كيرلس مدحت  " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">كيرلس مدحت </div>
+                            <p>تميز في الأنشطة الرياضية والبدنية</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="" alt=" ملاك شنودة " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> ملاك شنودة </div>
+                            <p>تميز في القيادة والأنشطة الكشفية</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="" alt="جورج شنودة  " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">جورج شنودة </div>
+                            <p>تميزت في الأنشطة الفنية والإبداعية</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="" alt="  سامح بشاي  " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name">ساماح بشاي </div>
+                            <p>تميز في الأنشطة الرياضية والبدنية</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="" alt="ميرل  كيرلس " class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> ميرا كيرلس </div>
+                            <p>تميزت في الأنشطة الثقافية والتعليمية</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in">
+                        <img src="" alt=" كاراس ناجح" class="gallery-img">
+                        <div class="gallery-caption">
+                            <div class="member-name animated-name"> كاراس ناجح </div>
+                            <p>تميز في التطوع وخدمة الآخرين</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- التذييل -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-cross"></i>
+                </div>
+                <h3>مجموعة العجايبي الكشفية </h3>
+                <p class="footer-verses">"لأَنَّنَا بِالإِيمَانِ نَسْلُكُ، لاَ بِالْعِيَانِ" (2 كورنثوس 5: 7)</p>
+                <p class="copyright">© 2025 جميع الحقوق محفوظة | تصميم وتطوير فريق الكشافة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة حدث النقر لأزرار الأقسام
+            const sectionButtons = document.querySelectorAll('.section-btn');
+            sectionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetSection = this.getAttribute('data-section');
+
+                    // إخفاء جميع الأقسام
+                    document.querySelectorAll('.content-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+
+                    // إزالة النشط من جميع الأزرار
+                    sectionButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.style.backgroundColor = 'var(--primary-color)';
+                    });
+
+                    // إظهار القسم المطلوب
+                    document.getElementById(targetSection).classList.add('active');
+
+                    // إضافة تأثير للزر النشط
+                    this.classList.add('active');
+                    this.style.backgroundColor = 'var(--accent-color)';
+
+                    // تفعيل تأثيرات الظهور للأقسام الجديدة
+                    setTimeout(checkFade, 100);
+                    setTimeout(animateNames, 200);
+                });
+            });
+
+            // تأثير الظهور التدريجي للعناصر
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+
+            // تفعيل عند التمرير
+            window.addEventListener('scroll', checkFade);
+            checkFade(); // تفعيل عند التحميل
+
+            // تأثيرات للأسماء
+            const animatedNames = document.querySelectorAll('.animated-name');
+
+            function animateNames() {
+                animatedNames.forEach((name, index) => {
+                    setTimeout(() => {
+                        name.style.animation = `nameAnimation 0.8s ease forwards ${index * 0.1}s`;
+                    }, 100);
+                });
+            }
+
+            animateNames();
+        });
+    </script>
+</body>
+
+</html>
